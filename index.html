@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZenBeats</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <button id="modeToggle" aria-label="Toggle Dark Mode">🌙</button>
+
+  <!-- Hamburger Menu Icon -->
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+  <!-- Hidden Music Menu -->
+  <div id="music-menu" class="music-menu">
+    <h3>🎧 More Music</h3>
+    <div class="menu-track">
+      <h4>Rain Drops</h4>
+      <audio controls>
+        <source src="rain-drops.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+  <div class="quote-box" id="quoteBox">Breathe in. Breathe out.</div>
+
+  <header>
+    <h1>ZenBeats</h1>
+    <p>Relax. Breathe. Heal.</p>
+  </header>
+
+  <section class="music-section">
+    <h2>Relaxing Music Tracks</h2>
+    <div class="music-container">
+
+      <!-- Morning Flow -->
+      <div class="music-card">
+        <h3>🌅 Morning Flow</h3>
+        <audio controls>
+          <source src="morning-flow.mp3" type="audio/mpeg" />
+        </audio>
+      </div>
+
+      <!-- Krishna Flute -->
+      <div class="music-card">
+        <h3>🦚 Krishna Flute</h3>
+        <audio controls>
+          <source src="krishna-flute.mp3" type="audio/mpeg" />
+        </audio>
+      </div>
+
+      <!-- Bajrang Baan -->
+      <div class="music-card">
+        <h3>🕉️ Bajrang Baan</h3>
+        <audio controls>
+          <source src="bajrang-baan.mp3" type="audio/mpeg" />
+        </audio>
+      </div>
+
+      <!-- Message Card -->
+      <div class="message-card">
+        Made with peace <span class="heart">💖</span> by <span class="utsab">Utsab</span>
+      </div>
+
+      <!-- Evening Calm -->
+      <div class="music-card">
+        <h3>Evening Calm</h3>
+        <audio class="music-player" controls>
+          <source src="evening-calm.mp3" type="audio/mpeg" />
+        </audio>
+      </div>
+
+      <!-- Deep Sleep -->
+      <div class="music-card">
+        <h3>Deep Sleep</h3>
+        <audio class="music-player" controls>
+          <source src="deep-sleep.mp3" type="audio/mpeg" />
+        </audio>
+      </div>
+
+      <!-- Ocean Breeze -->
+      <div class="music-card">
+        <h3>Ocean Breeze</h3>
+        <audio class="music-player" controls>
+          <source src="ocean-breeze.mp3" type="audio/mpeg" />
+        </audio>
+      </div>
+    </div>
+  </section>
+<section class="benefits-section">
+  <h2>🌟 Benefits of ZenBeats</h2>
+  <div class="benefits-container">
+    <div class="benefit-card">🧘‍♀️ Enhances Focus</div>
+    <div class="benefit-card">😌 Reduces Stress</div>
+    <div class="benefit-card">💤 Improves Sleep</div>
+    <div class="benefit-card">🌿 Boosts Mood</div>
+  </div>
+</section>
+
+  <section class="contact-section">
+  <h2>Contact Me</h2>
+  <p>Feel free to share your thoughts, suggestions or just say hi 👋</p>
+  <form class="contact-form">
+    <input type="text" placeholder="Your Name" required />
+    <input type="number" placeholder="Your Phone Number" required />
+    <textarea rows="4" placeholder="Your Message" required></textarea>
+    <button type="submit">Send ✉️</button>
+  </form>
+
+  <!-- Glowing WhatsApp Button -->
+  <a class="contact-whatsapp" href="https://wa.me/+917685893563" target="_blank">
+    <span>📱</span> Chat on WhatsApp
+  </a>
+</section>
+
+
+  <div class="floating-icons">
+    <span>🌿</span>
+    <span>☁️</span>
+    <span>🧘‍♂️</span>
+    <span>🍃</span>
+    <span>🌸</span>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById("modeToggle");
+      toggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        toggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+      });
+
+      const players = document.querySelectorAll("audio");
+      players.forEach((player) => {
+        player.addEventListener("play", () => {
+          players.forEach((p) => {
+            if (p !== player) p.pause();
+          });
+        });
+      });
+
+      const quotes = [
+        "Breathe in. Breathe out.",
+        "Peace begins with you.",
+        "You are calm, you are light.",
+        "Let go of what you can't control.",
+        "Just be here now."
+      ];
+      let i = 0;
+      const quoteBox = document.getElementById("quoteBox");
+      setInterval(() => {
+        i = (i + 1) % quotes.length;
+        quoteBox.innerText = quotes[i];
+      }, 6000);
+    });
+
+    function toggleMenu() {
+      const menu = document.getElementById("music-menu");
+      menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</body>
+
+</html>

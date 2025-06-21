@@ -1,0 +1,369 @@
+/* General Setup */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #eafaf8, #d7f5ee);
+  background-size: 400% 400%;
+  animation: backgroundShift 20s ease infinite;
+  color: #333;
+  padding-bottom: 60px;
+  overflow-x: hidden;
+}
+
+body.dark-mode {
+  background: linear-gradient(120deg, #1e1e1e, #2b2b2b);
+  background-size: 400% 400%;
+  animation: backgroundShift 20s ease infinite;
+  color: #f1f1f1;
+}
+
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+ header {
+  text-align: center;
+  padding: 80px 20px;
+  animation: fadeIn 2s ease-in-out;
+  background: linear-gradient(135deg, #ffffff, #f9f9f9);
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 0 40px 40px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+body.dark-mode header {
+  background: linear-gradient(135deg, #2b2b2b, #1f1f1f);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  animation: floatTitle 4s ease-in-out infinite;
+  text-shadow: 0 0 5px #6bd6ff, 0 0 10px #6bd6ff, 0 0 15px #6bd6ff;
+}
+
+
+.music-section {
+  padding: 20px;
+  text-align: center;
+}
+
+.music-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  animation: fadeUp 1s ease-in-out;
+}
+
+.music-card, .message-card {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  animation: floatIn 1s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+.music-card audio {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 10px;
+}
+
+.music-card:hover,
+.music-card:active {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .music-card, body.dark-mode .message-card {
+  background: #2c2c2c;
+  color: #f1f1f1;
+}
+
+.message-card {
+  text-align: center;
+  font-weight: bold;
+}
+
+.heart {
+  color: #e25555;
+  animation: pulse 1.5s infinite, glow 1.5s infinite ease-in-out;
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 5px #ff6b6b, 0 0 10px #ff6b6b, 0 0 15px #ff6b6b;
+  }
+  50% {
+    text-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff6b6b, 0 0 25px #ff6b6b;
+  }
+}
+
+@keyframes floatTitle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.menu-icon {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#music-menu {
+  display: none;
+  position: fixed;
+  top: 60px;
+  left: 15px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 20;
+}
+#music-menu .contact-link {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#music-menu .contact-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode #music-menu .contact-link {
+  background: linear-gradient(135deg, #128C7E, #075E54);
+}
+
+body.dark-mode #music-menu {
+  background: #2c2c2c;
+}
+
+.quote-box {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+#modeToggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.floating-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 1;
+  animation: floatIcons 10s linear infinite;
+  font-size: 24px;
+  display: flex;
+  justify-content: space-around;
+  opacity: 0.5;
+}
+
+@keyframes floatIcons {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(20px); }
+  100% { transform: translateY(0); }
+}
+
+.benefits-section {
+  text-align: center;
+  padding: 40px 20px;
+  animation: fadeUp 1.2s ease-in-out;
+}
+
+.benefits-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.tabs input[type="radio"] {
+  display: none;
+}
+
+.tabs label {
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 20px;
+  background-color: #d7f5ee;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.tabs label:hover {
+  background-color: #bdeadc;
+  transform: scale(1.05);
+}
+
+.tab-content {
+  display: none;
+  padding: 20px;
+  margin-top: 15px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#tab1:checked ~ label[for="tab1"],
+#tab2:checked ~ label[for="tab2"],
+#tab3:checked ~ label[for="tab3"] {
+  background-color: #5dbb63;
+  color: white;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3 {
+  display: block;
+}
+
+body.dark-mode .tab-content {
+  background-color: rgba(44, 44, 44, 0.9);
+  color: #f1f1f1;
+}
+
+.contact-section {
+  padding: 40px;
+  text-align: center;
+  animation: fadeUp 1.5s ease-in-out;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.contact-form button {
+  padding: 10px;
+  background-color: #5dbb63;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #489e51;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(60px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+.contact-whatsapp {
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 0 8px #25D366, 0 0 12px #25D366, 0 0 16px #25D366;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: glowPulse 1.8s infinite ease-in-out;
+  font-size: 1.1rem;
+}
+
+.contact-whatsapp:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 12px #25D366, 0 0 18px #25D366, 0 0 24px #25D366;
+}
+
+body.dark-mode .contact-whatsapp {
+  background: #128C7E;
+  box-shadow: 0 0 10px #128C7E, 0 0 15px #128C7E, 0 0 20px #128C7E;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 8px #25D366, 0 0 12px #25D366, 0 0 16px #25D366;
+  }
+  50% {
+    box-shadow: 0 0 12px #25D366, 0 0 18px #25D366,
